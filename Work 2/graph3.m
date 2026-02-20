@@ -1,9 +1,7 @@
-x = linspace(-2.5, 2.5, 500);
-y = linspace(-2.5, 2.5, 500);
-[ X, Y ] = meshgrid(x, y);
-Z = Y.^ 2 - X.^ 3 + X;
+syms x y;
+f = y ^ 2 - x ^ 3 + x;
 figure;
-contour(X, Y, Z, [0 0], 'b', 'LineWidth', 1.5);
+fimplicit(f, [-2.5 2.5 - 2.5 2.5], 'b', 'LineWidth', 1.5);
 title('(c) Locus of y^2 = x^3 - x on [-2.5, 2.5]');
 xlabel('x');
 ylabel('y');
