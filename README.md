@@ -4,7 +4,7 @@
 [![Octave](https://img.shields.io/badge/GNU%20Octave-6.0%2B-blue?logo=octave)](https://octave.org)
 [![GitHub](https://img.shields.io/badge/GitHub-Edwin420s%2FMatlab-black?logo=github)](https://github.com/Edwin420s/Matlab)
 
-A collection of MATLAB/Octave scripts spanning two assignments: an **interactive grade calculator** demonstrating conditional logic, and a **mathematical graphing** exercise covering polynomials, trigonometric functions, and implicit curves.
+A comprehensive collection of MATLAB/Octave programming assignments spanning three major projects: **grade calculation systems**, **mathematical visualization**, and **advanced student record management**. These assignments demonstrate fundamental programming concepts including conditional logic, data structures, user interaction, and mathematical graphing.
 
 ---
 
@@ -14,14 +14,10 @@ A collection of MATLAB/Octave scripts spanning two assignments: an **interactive
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
 - [Work 1 — Grade Calculator](#work-1--grade-calculator)
-  - [Grading Scale](#grading-scale)
-  - [Scripts](#work-1-scripts)
-  - [Example Session](#example-session)
 - [Work 2 — Mathematical Graphing](#work-2--mathematical-graphing)
-  - [Functions Plotted](#functions-plotted)
-  - [Scripts](#work-2-scripts)
-  - [Output Previews](#output-previews)
-  - [Technical Notes](#technical-notes)
+- [Work 3 — Advanced Projects](#work-3--advanced-projects)
+  - [Project 1: Student Record Management](#project-1-student-record-management)
+  - [Project 2: Mathematical Subplots](#project-2-mathematical-subplots)
 - [Key MATLAB Concepts Used](#key-matlab-concepts-used)
 
 ---
@@ -30,19 +26,28 @@ A collection of MATLAB/Octave scripts spanning two assignments: an **interactive
 
 ```
 Class/
-├── README.md                  ← you are here
-├── Work1/                     ← Assignment 1: Grade Calculator
-│   ├── grade_switch_case.m    ← single-subject grader (switch/case)
-│   ├── grade_switch_all.m     ← three-subject grader (switch/case)
-│   ├── subject_grades.m       ← three-subject grader (if/elseif/else)
+├── README.md                     ← you are here
+├── Work1/                        ← Assignment 1: Basic Grade Calculator
+│   ├── grade_switch_case.m       ← single-subject grader (switch/case)
+│   ├── grade_switch_all.m        ← three-subject grader (switch/case)
+│   ├── subject_grades.m          ← three-subject grader (if/elseif/else)
 │   └── README.md
-└── Work 2/                    ← Assignment 2: Graphing
-    ├── graph.m                ← Part (a) — cubic polynomial
-    ├── graph2.m               ← Part (b) — tangent function
-    ├── graph3.m               ← Part (c) — elliptic curve
-    ├── graph4.m               ← All parts combined (subplots)
-    ├── README.md
-    └── *.png                  ← sample output figures
+├── Work 2/                       ← Assignment 2: Mathematical Graphing
+│   ├── graph.m                   ← Part (a) — cubic polynomial
+│   ├── graph2.m                  ← Part (b) — tangent function
+│   ├── graph3.m                  ← Part (c) — elliptic curve
+│   ├── graph4.m                  ← All parts combined (subplots)
+│   ├── *.png                     ← sample output figures
+│   └── README.md
+└── Work3/                        ← Assignment 3: Advanced Projects
+    ├── Project1/
+    │   └── student_records.m     ← Student record management system
+    ├── Project2/
+    │   ├── subplot.m             ← Main subplot script
+    │   ├── eq_a.m                ← Equation (a): y = x³ - x
+    │   ├── eq_b.m                ← Equation (b): y = tan(x)
+    │   └── eq_c.m                ← Equation (c): y² = x³ - x
+    └── README.md
 ```
 
 ---
@@ -93,7 +98,7 @@ octave --no-gui "Work 2/graph.m"
 
 ## Work 1 — Grade Calculator
 
-Three scripts that prompt for subject marks and output letter grades. Two different control-flow approaches are demonstrated side by side.
+Three scripts that demonstrate different approaches to conditional logic for grade calculation. Each script prompts for subject marks and outputs letter grades.
 
 ### Grading Scale
 
@@ -130,7 +135,7 @@ Kiswahili grade is: FAIL
 
 ## Work 2 — Mathematical Graphing
 
-Four scripts that plot mathematical functions/curves across specified intervals.
+Four scripts that plot mathematical functions/curves across specified intervals, demonstrating 2-D plotting, contour plots, and subplot arrangements.
 
 ### Functions Plotted
 
@@ -168,6 +173,54 @@ Sample output plots are saved in the `Work 2/` directory:
 
 ---
 
+## Work 3 — Advanced Projects
+
+Two comprehensive assignments that build upon the fundamentals learned in Works 1 and 2, implementing more complex data structures and advanced visualization techniques.
+
+### Project 1: Student Record Management (15 marks)
+
+An interactive command-line system for managing comprehensive student academic records with multiple viewing and search capabilities.
+
+#### Features
+- **Add Students**: Input student name and minimum 5 subjects with marks
+- **Grade Calculation**: Automatic letter grade generation based on standard grading scale
+- **Multiple Viewing Options**:
+  1. Display all student records
+  2. Display records for a selected student
+  3. Display records for a selected subject
+  4. Display specific student-subject combination
+
+#### Usage
+**Usage:**
+```matlab
+cd('Work3/Project1')
+student_records
+```
+
+### Project 2: Mathematical Function Subplots
+
+A visualization project that plots three mathematical equations in separate subplots and combines them in a fourth subplot.
+
+**Equations Plotted:**
+- (a) `y = x³ - x` (cubic polynomial)
+- (b) `y = tan(x)` (tangent function with asymptote handling)
+- (c) `y² = x³ - x` (elliptic curve)
+- (d) All three combined with legend
+
+**Files:**
+- `subplot.m` - Main orchestration script
+- `eq_a.m` - Cubic polynomial generator
+- `eq_b.m` - Tangent function generator
+- `eq_c.m` - Elliptic curve generator
+
+**Usage:**
+```matlab
+cd('Work3/Project2')
+subplot
+```
+
+---
+
 ## Key MATLAB Concepts Used
 
 | Concept | Description |
@@ -183,6 +236,11 @@ Sample output plots are saved in the `Work 2/` directory:
 | `xlim() / ylim()` | Sets axis limits |
 | `xticks() / xticklabels()` | Custom axis tick marks and labels |
 | `NaN` masking | Suppresses unwanted data points (e.g., asymptotes) |
+| **Structures** | Organizing complex data (student records) |
+| **Functions** | Modular code organization and reuse |
+| **String Operations** | Case-insensitive comparisons with `strcmpi()` |
+| **Element-wise Operations** | Vectorized computations with `.^` |
+| **Legend Creation** | Multi-function plot identification |
 
 ---
 
