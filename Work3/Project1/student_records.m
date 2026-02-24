@@ -4,19 +4,19 @@ clear;
 
 students = struct([]);
 
-fprintf("===== STUDENT RECORD MANAGEMENT SYSTEM =====\n");
+fprintf('===== STUDENT RECORD MANAGEMENT SYSTEM =====\n');
 
 while true
     
-    fprintf("\n");
-    fprintf("1. Add Student\n");
-    fprintf("2. Display All Records\n");
-    fprintf("3. Display Selected Student\n");
-    fprintf("4. Display Selected Subject\n");
-    fprintf("5. Display Selected Student + Subject\n");
-    fprintf("6. Exit\n");
+    fprintf('\n');
+    fprintf('1. Add Student\n');
+    fprintf('2. Display All Records\n');
+    fprintf('3. Display Selected Student\n');
+    fprintf('4. Display Selected Subject\n');
+    fprintf('5. Display Selected Student + Subject\n');
+    fprintf('6. Exit\n');
     
-    choice = input("Select an option: ");
+    choice = input('Select an option: ');
     
     switch choice
         
@@ -36,11 +36,11 @@ while true
             displayStudentSubject(students);
             
         case 6
-            fprintf("Exiting system...\n");
+            fprintf('Exiting system...\n');
             break;
             
         otherwise
-            fprintf("Invalid option. Try again.\n");
+            fprintf('Invalid option. Try again.\n');
     end
 end
 
@@ -48,11 +48,11 @@ end
 
 function students = addStudent(students)
 
-name = input("Enter student name: ", 's');
-numSubjects = input("Enter number of subjects (minimum 5): ");
+name = input('Enter student name: ', 's');
+numSubjects = input('Enter number of subjects (minimum 5): ');
 
 if numSubjects < 5
-    fprintf("Minimum 5 subjects required.\n");
+    fprintf('Minimum 5 subjects required.\n');
     return;
 end
 
@@ -61,8 +61,8 @@ newStudent.subjects = struct([]);
 
 for i = 1:numSubjects
     
-    subjectName = input("Enter subject name: ", 's');
-    mark = input("Enter marks: ");
+    subjectName = input('Enter subject name: ', 's');
+    mark = input('Enter marks: ');
     
     grade = generateGrade(mark);
     
@@ -73,7 +73,7 @@ end
 
 students = [students newStudent];
 
-fprintf("Student added successfully.\n");
+fprintf('Student added successfully.\n');
 
 end
 
@@ -97,19 +97,19 @@ end
 function displayAll(students)
 
 if isempty(students)
-    fprintf("No records found.\n");
+    fprintf('No records found.\n');
     return;
 end
 
 for i = 1:length(students)
     
-    fprintf("\n=====================================\n");
-    fprintf("Student: %s\n", students(i).name);
+    fprintf('\n=====================================\n');
+    fprintf('Student: %s\n', students(i).name);
     
-    fprintf("Subjects:\n");
+    fprintf('Subjects:\n');
     
     for j = 1:length(students(i).subjects)
-        fprintf("  %s - %d (%s)\n", ...
+        fprintf('  %s - %d (%s)\n', ...
             students(i).subjects(j).name, ...
             students(i).subjects(j).mark, ...
             students(i).subjects(j).grade);
@@ -122,19 +122,19 @@ end
 function displayStudent(students)
 
 if isempty(students)
-    fprintf("No records found.\n");
+    fprintf('No records found.\n');
     return;
 end
 
-name = input("Enter student name: ", 's');
+name = input('Enter student name: ', 's');
 
 for i = 1:length(students)
     if strcmpi(students(i).name, name)
-        fprintf("\nStudent: %s\n", students(i).name);
+        fprintf('\nStudent: %s\n', students(i).name);
         
-        fprintf("Subjects:\n");
+        fprintf('Subjects:\n');
         for j = 1:length(students(i).subjects)
-            fprintf("  %s - %d (%s)\n", ...
+            fprintf('  %s - %d (%s)\n', ...
                 students(i).subjects(j).name, ...
                 students(i).subjects(j).mark, ...
                 students(i).subjects(j).grade);
@@ -143,25 +143,25 @@ for i = 1:length(students)
     end
 end
 
-fprintf("Student not found.\n");
+fprintf('Student not found.\n');
 
 end
 
 function displaySubject(students)
 
 if isempty(students)
-    fprintf("No records found.\n");
+    fprintf('No records found.\n');
     return;
 end
 
-subjectName = input("Enter subject name: ", 's');
+subjectName = input('Enter subject name: ', 's');
 
 found = false;
 
 for i = 1:length(students)
     for j = 1:length(students(i).subjects)
         if strcmpi(students(i).subjects(j).name, subjectName)
-            fprintf("%s - %d (%s)\n", ...
+            fprintf('%s - %d (%s)\n', ...
                 students(i).name, ...
                 students(i).subjects(j).mark, ...
                 students(i).subjects(j).grade);
@@ -171,7 +171,7 @@ for i = 1:length(students)
 end
 
 if ~found
-    fprintf("Subject not found.\n");
+    fprintf('Subject not found.\n');
 end
 
 end
@@ -179,12 +179,12 @@ end
 function displayStudentSubject(students)
 
 if isempty(students)
-    fprintf("No records found.\n");
+    fprintf('No records found.\n');
     return;
 end
 
-name = input("Enter student name: ", 's');
-subjectName = input("Enter subject name: ", 's');
+name = input('Enter student name: ', 's');
+subjectName = input('Enter subject name: ', 's');
 
 for i = 1:length(students)
     
@@ -194,7 +194,7 @@ for i = 1:length(students)
             
             if strcmpi(students(i).subjects(j).name, subjectName)
                 
-                fprintf("\n%s - %s: %d (%s)\n", ...
+                fprintf('\n%s - %s: %d (%s)\n', ...
                     name, ...
                     subjectName, ...
                     students(i).subjects(j).mark, ...
@@ -203,11 +203,11 @@ for i = 1:length(students)
             end
         end
         
-        fprintf("Subject not found for this student.\n");
+        fprintf('Subject not found for this student.\n');
         return;
     end
 end
 
-fprintf("Student not found.\n");
+fprintf('Student not found.\n');
 
 end
